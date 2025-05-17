@@ -54,7 +54,7 @@ void setup() {
   // Power level: Minimum
   radio.setPALevel(RF24_PA_MIN);
   // Data rate: 1 Mbps
-  radio.setDataRate(RF24_1MBPS);
+  radio.setDataRate(RF24_250KBPS);
   // Channel 108
   radio.setChannel(108);
   // Disable the radio auto-acknowledgment
