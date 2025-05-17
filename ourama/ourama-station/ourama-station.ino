@@ -21,7 +21,7 @@ void setup() {
   radio.setDataRate(RF24_250KBPS); // Better range and reliability
   // Sets RF channel (frequency = 2.408 GHz)
   radio.setChannel(108);
-  // Sets the radio to not use auto-acknowledgment
+  // Disable the radio auto-acknowledgment
   radio.setAutoAck(false);
   radio.enableDynamicPayloads();
   // Puts the nRF24L01 module into receive mode

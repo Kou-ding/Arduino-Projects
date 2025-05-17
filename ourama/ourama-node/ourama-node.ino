@@ -51,16 +51,17 @@ void setup() {
   // Configures the nRF24L01
   // Writing pipe
   radio.openWritingPipe(address);
-  // Channel 108
-  radio.setChannel(108);
-  // Data rate: 1 Mbps
-  radio.setDataRate(RF24_1MBPS);
   // Power level: Minimum
   radio.setPALevel(RF24_PA_MIN);
+  // Data rate: 1 Mbps
+  radio.setDataRate(RF24_1MBPS);
+  // Channel 108
+  radio.setChannel(108);
+  // Disable the radio auto-acknowledgment
+  radio.setAutoAck(false);
+  radio.enableDynamicPayloads();
   // Retries 5 times, 15 delay units
-  radio.setRetries(5, 15); 
-  // Sets the radio to use auto-acknowledgment
-  radio.setAutoAck(true);
+  radio.setRetries(5, 15);
   // Sets the module to transmit mode
   radio.stopListening(); 
 }
