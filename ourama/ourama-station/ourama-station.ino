@@ -16,14 +16,14 @@ void setup() {
   // Opens reading pipe 0 using the specified address
   radio.openReadingPipe(0, address);
   // Sets transmission power level to minimum (for short-range)
-  radio.setPALevel(RF24_PA_LOW);
+  radio.setPALevel(RF24_PA_MIN);
   // Sets data rate to 1 Megabit per second.
   radio.setDataRate(RF24_250KBPS); // Better range and reliability
   // Sets RF channel (frequency = 2.408 GHz)
   radio.setChannel(108);
-  // Sets the radio to use auto-acknowledgment
-  radio.setAutoAck(true);
-  // radio.enableDynamicPayloads();
+  // Sets the radio to not use auto-acknowledgment
+  radio.setAutoAck(false);
+  radio.enableDynamicPayloads();
   // Puts the nRF24L01 module into receive mode
   radio.startListening();
 }
