@@ -29,8 +29,8 @@ void setup() {
 }
 
 void loop() {
-  // Declares a buffer receivedUID to store up to 8 characters (e.g., "a1b2c3d4") + null terminator
-  char receivedUID[9]={0};
+  // Declares a buffer receivedUID to store up to 24 characters + null terminator
+  char receivedUID[25]={0};
   // Checks if data is available from the radio module
   if (radio.available())  {
     // Reads the incoming data into the buffer
@@ -38,6 +38,6 @@ void loop() {
     // Prints the received UID to the Serial Monitor
     Serial.println(receivedUID);
     // Clears the RX buffer to avoid reading the same message multiple times
-    //radio.flush_rx(); // Might interfere with with the ACK
+    radio.flush_rx(); // Might interfere with with the ACK
   }
 }
