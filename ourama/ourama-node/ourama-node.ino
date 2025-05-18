@@ -6,7 +6,7 @@
 #include <nRF24L01.h>
 #include <RF24.h>
 
-#define PLAYER_ID 1 // Player ID for the RFID reader
+#define PLAYER_ID 2 // Player ID for the RFID reader
 // Declare the slave select (SS) pin (GPIO 5) for the RFID reader
 MFRC522DriverPinSimple ss_pin(5);
 
@@ -101,7 +101,7 @@ void loop() {
   
   // Create a buffer with "player 1: " prefix
   char transmissionBuffer[25] = {0};  // Large enough for prefix + UID + null terminator
-  strcpy(transmissionBuffer, "Player " + PLAYER_ID + ": ");
+  sprintf(transmissionBuffer, "Player %d: ", PLAYER_ID);  
   strcat(transmissionBuffer, uidString.c_str());
 
   // Sends the combined buffer via nRF24L01
