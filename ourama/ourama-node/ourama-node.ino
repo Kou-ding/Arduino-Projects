@@ -59,7 +59,7 @@ void setup() {
   // Channel 108
   radio.setChannel(108);
   // Disable the radio auto-acknowledgment
-  radio.setAutoAck(false);
+  radio.setAutoAck(true);
   radio.enableDynamicPayloads();
   // Retries 5 times, 15 delay units
   radio.setRetries(5, 15);

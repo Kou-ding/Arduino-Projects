@@ -22,7 +22,7 @@ void setup() {
   // Sets RF channel (frequency = 2.408 GHz)
   radio.setChannel(108);
   // Disable the radio auto-acknowledgment
-  radio.setAutoAck(false);
+  radio.setAutoAck(true);
   radio.enableDynamicPayloads();
   // Puts the nRF24L01 module into receive mode
   radio.startListening();
@@ -38,6 +38,6 @@ void loop() {
     // Prints the received UID to the Serial Monitor
     Serial.println(receivedUID);
     // Clears the RX buffer to avoid reading the same message multiple times
-    radio.flush_rx(); // Might interfere with with the ACK
+    //radio.flush_rx(); // Might interfere with with the ACK
   }
 }
